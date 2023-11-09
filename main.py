@@ -27,12 +27,12 @@ class DigitChecker:
         result = pd.read_sql(sql_query, vertica_connection)
 
         if len(result > 0):
-            return Exception("Введенное число уже есть в БД")
+            return "Введенное число уже есть в БД"
 
         sql_query = f"SELECT * FROM Scheme.Table WHERE number = {number + 1}"
         result = pd.read_sql(sql_query, vertica_connection)
         if len(result) > 0:
-            return Exception("Поступало число на 1 больше")
+            return "Поступало число на 1 больше"
 
         new_value = pd.DataFrame({"number": [number]})
 
