@@ -1,0 +1,16 @@
+version: "3.8"
+name: myproject
+services:
+  web:
+    build: server
+    env_file:
+      - .env
+    ports:
+      - "80:80"
+  postgres:
+      image: postgres
+      restart: always
+      environment:
+        POSTGRES_DB: Numbers
+        POSTGRES_USER: uselesscloud
+        POSTGRES_PASSWORD: 1q2w3e4r
